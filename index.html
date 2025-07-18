@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explosão Burguer 🔥 PDV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Explosão Burguer 🔥 PDV</h1>
+
+  <section class="pedido">
+    <label for="produto">Produto:</label>
+    <select id="produto">
+      <option value="Solo Smash">Solo Smash - R$25</option>
+      <option value="Break da Guitarra">Break da Guitarra - R$28</option>
+      <option value="Refrão de Bacon">Refrão de Bacon - R$30</option>
+      <option value="Chamas do Louvor">Chamas do Louvor - R$26</option>
+    </select>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" min="1" value="1">
+
+    <button onclick="adicionarPedido()">Adicionar ao Pedido</button>
+  </section>
+
+  <section id="resumo">
+    <h2>Resumo:</h2>
+    <ul id="lista-pedidos"></ul>
+    <p id="total">Total: R$0,00</p>
+    <button onclick="finalizarPedido()">Finalizar Pedido</button>
+    <button onclick="gerarPixQR()">Gerar Pix QR Code</button>
+    <div id="qrcodePix"></div>
+  </section>
+
+  <section id="relatorio">
+    <h2>Vendas:</h2>
+    <ul id="historico-vendas"></ul>
+  </section>
+
+  <!-- Biblioteca QRCode.js -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="script.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</body>
+</html>
