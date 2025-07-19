@@ -62,7 +62,7 @@ function atualizarRelatorio() {
 
 function gerarPixQR() {
   const valor = pedidos.reduce((acc, p) => acc + p.total, 0);
-  const chavePix = "seuemail@dominio.com"; // 🔁 substitua pela sua chave Pix
+  const chavePix = "seuemail@dominio.com"; // ← substitua com sua chave Pix
 
   const payload = `Pagamento Explosão Burguer 🔥\nChave: ${chavePix}\nValor: R$${valor.toFixed(2)}`;
 
@@ -76,4 +76,21 @@ function gerarPixQR() {
     colorLight: "#fff",
     correctLevel: QRCode.CorrectLevel.H
   });
+}
+
+function enviarWhatsApp() {
+  const numeroDestino = "5581985463493"; // ← coloque aqui o número que vai receber os pedidos
+  let texto = `🔥 Pedido Explosão Burguer:\n`;
+
+  pedidos.forEach(p => {
+    texto += `• ${p.quantidade}x ${p.produto} - R$${p.total.toFixed(2)}\n`;
+  });
+
+  const valorTotal = pedidos.reduce((acc, p) => acc + p.total, 0);
+  texto += `\n💰 Total: R$${valorTotal.toFixed(2)}\n\nQue o sabor do louvor te acompanhe! 🍔🔥`;
+
+  const mensagemEncoded = encodeURIComponent(texto);
+  const linkWhatsApp = `https://wa.me/${numeroDestino}?text=${mensagemEncoded}`;
+
+  window.open(linkWhatsApp, "_blank");
 }
