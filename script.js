@@ -90,7 +90,7 @@ function enviarWhatsApp() {
   texto += `\n💰 Total: R$${valorTotal.toFixed(2)}\n\nQue o sabor do louvor te acompanhe! 🍔🔥`;
 
   const mensagemEncoded = encodeURIComponent(texto);
-  const linkWhatsApp = `https://wa.me/${numeroDestino}?text=${mensagemEncoded}`;
+  const linkWhatsApp = `https://wa.me/${5581985463493}?text=${mensagemEncoded}`;
 
   window.open(linkWhatsApp, "_blank");
 }
